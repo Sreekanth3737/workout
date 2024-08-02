@@ -1,0 +1,10 @@
+let str = "System name has been changed from $ to $";
+const modifiedStr = str.split(" ");
+const templateValues = ["WP6012-8PoE-Switch-1", "WP6012-8PoE-Switch-2"];
+const searchValue = "$";
+const firstIndex = modifiedStr.indexOf(searchValue);
+const lastIndex = modifiedStr.lastIndexOf(searchValue);
+modifiedStr[firstIndex] = templateValues[0];
+modifiedStr[lastIndex] = templateValues[1];
+const result = modifiedStr.join(" ");
+console.log(result, modifiedStr);

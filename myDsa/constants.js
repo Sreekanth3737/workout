@@ -1,0 +1,30 @@
+const EMAIL_TEMPLATE_TYPES = {
+  ROLE_ASSIGN: "ROLE_ASSIGN",
+  ROLE_REMOVE: "ROLE_REMOVE",
+};
+
+const NOTIFICATION_TYPES = {
+  ROLE_ASSIGNMENT_TO_USER: "ROLE_ASSIGNMENT_TO_USER",
+  ROLE_REMOVAL_FROM_USER: "ROLE_REMOVAL_FROM_USER",
+};
+
+const NOTIFICATION_CONFIG = {
+  [NOTIFICATION_TYPES.ROLE_ASSIGNMENT_TO_USER]: {
+    notificationTypes: {
+      email: { templateType: EMAIL_TEMPLATE_TYPES.ROLE_ASSIGN },
+      sms: {},
+      web: {},
+    },
+  },
+  [NOTIFICATION_TYPES.ROLE_REMOVAL_FROM_USER]: {
+    notificationTypes: {
+      email: { templateType: EMAIL_TEMPLATE_TYPES.ROLE_REMOVE },
+    },
+  },
+};
+
+module.exports = {
+  EMAIL_TEMPLATE_TYPES,
+  NOTIFICATION_TYPES,
+  NOTIFICATION_CONFIG,
+};
