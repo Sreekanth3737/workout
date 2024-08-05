@@ -80,4 +80,20 @@ console.log(rotateRight(inputArr1, 4)); // Output: [6, 7, 8, 9, 1, 2, 3, 4, 5]
 
 // 1.normal way
 // 2.recursive binary search
-// 3. iterative  binary search
+// 3.iterative  binary search
+
+const findPeeakElement = (arr, length) => {
+  if (length === 1) return 0;
+  if (arr[0] >= arr[1]) return 0;
+  if (arr[length - 1] >= arr[length - 2]) return length - 1;
+
+  for (let i = 1; i < length - 1; i++) {
+    if (arr[i] >= arr[i - 1] && arr[i] >= arr[i + 1]) {
+      return i;
+    }
+  }
+
+  return -1;
+};
+const peekArr = [11, 2, 3, 6, 5, 9, 10];
+console.log(findPeeakElement(peekArr, peekArr.length));
