@@ -82,6 +82,7 @@ console.log(rotateRight(inputArr1, 4)); // Output: [6, 7, 8, 9, 1, 2, 3, 4, 5]
 // 2.recursive binary search
 // 3.iterative  binary search
 
+// ** normal way
 const findPeeakElement = (arr, length) => {
   if (length === 1) return 0;
   if (arr[0] >= arr[1]) return 0;
@@ -95,5 +96,24 @@ const findPeeakElement = (arr, length) => {
 
   return -1;
 };
-const peekArr = [11, 2, 3, 6, 5, 9, 10];
+const peekArr = [1, 2, 3, 6, 5, 9, 10];
 console.log(findPeeakElement(peekArr, peekArr.length));
+
+// ** recursive binary search
+const findPeekByRecursiveBinarySearch = (arr, low, high, length) => {
+  // ** find the index of middle
+  // ** low + parseInt((high - low) / 2)
+  let mid = low + parseInt((high - low) / 2);
+  console.log(arr[mid]);
+};
+console.log(
+  findPeekByRecursiveBinarySearch(
+    peekArr,
+    0,
+    peekArr.length - 1,
+    peekArr.length
+  )
+);
+
+// ** iterative  binary search
+const findPeekByItrativeBinarySearch = () => {};
