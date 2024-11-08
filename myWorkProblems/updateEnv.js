@@ -16,6 +16,7 @@ function updateEnvVariable(updateData) {
 
     updateData.forEach(({ key, value }) => {
       envVarsObj[key] = value;
+      console.log(`Updated ${key} in .env file.`);
     });
 
     for (const key in envVarsObj) {
