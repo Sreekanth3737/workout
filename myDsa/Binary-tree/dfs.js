@@ -33,3 +33,13 @@ const depthFirstSearchValues = (root) => {
 };
 const res = depthFirstSearchValues(a);
 console.log(res);
+
+const depthFirstSearchRecurssion = (root) => {
+  if (!root) return [];
+  const left = depthFirstSearchRecurssion(root.left);
+  const right = depthFirstSearchRecurssion(root.right);
+  return [root.val, ...left, ...right];
+};
+
+const result = depthFirstSearchRecurssion(a);
+console.log(result);
