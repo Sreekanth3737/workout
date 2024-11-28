@@ -170,6 +170,27 @@ var productExceptSelf = function (nums) {
 };
 console.log(productExceptSelf([1, 2, 3, 4]));
 
+// ** implement this code  const result =calc.add(10).multipy(3).subtract(5) => result.total
+
+const calc = {
+  total: 0,
+  add(n) {
+    this.total += n;
+    return this;
+  },
+  multiply(n) {
+    this.total *= n;
+    return this;
+  },
+  subtract(n) {
+    this.total -= n;
+    return this;
+  },
+};
+
+const result = calc.add(100).multiply(3).subtract(100);
+console.log(result.total);
+
 //  9. Given two strings. Find if one string can be formed by rearranging the letters of other string.
 //  10. Write logic to get unique objects from below array ?
 //  I/P: [{name: "sai"},{name:"Nang"},{name: "sai"},{name:"Nang"},{name: "111111"}];
