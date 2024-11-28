@@ -113,7 +113,63 @@ const mergeSortArr = (firstArr, secondArr) => {
   return mergedArray.concat(firstArr.slice(i).concat(secondArr.slice(j)));
 };
 console.log(mergeSortArr(firstArr, secondArr));
+
 //  8. Create a function which will accepts two arrays arr1 and arr2. The function should return true if every value in arr1 has its corresponding value squared in array2. The frequency of values must be same.
+// Inputs and outputs:
+// =============
+// [1,2,3],[4,1,9] ==> true
+// [1,2,3],[1,9] ====> false
+// [1,2,1],[4,4,1] ===> false (must be same frequency)
+
+const isFrequencySame = (arr1, arr2) => {
+  const freqArr1 = {};
+  const freqArr2 = {};
+
+  for (let item of arr1) {
+    freqArr1[item] = (freqArr1[item] || 0) + 1;
+  }
+
+  for (let item of arr2) {
+    freqArr2[item] = (freqArr2[item] || 0) + 1;
+  }
+
+  for (let key in freqArr1) {
+    if (!(key * key in freqArr2)) return false;
+    if (freqArr2[key * key] !== freqArr1[key]) return false;
+  }
+
+  return true;
+};
+
+console.log(isFrequencySame([1, 2, 3], [4, 1, 9])); // true
+console.log(isFrequencySame([1, 2, 3], [1, 9])); // false
+console.log(isFrequencySame([1, 2, 1], [4, 4, 1])); // false
+
+//238. Product of Array Except Self
+// Example 1:
+
+// Input: nums = [1,2,3,4]
+// Output: [24,12,8,6]
+// Example 2:
+
+// Input: nums = [-1,1,0,-3,3]
+// Output: [0,0,9,0,0]
+var productExceptSelf = function (nums) {
+  const result = Array(nums.length).fill(1);
+  let left = 1;
+  let right = 1;
+  for (let i = 0; i < nums.length; i++) {
+    result[i] *= left;
+    left *= nums[i];
+  }
+  for (let i = nums.length - 1; i >= 0; i--) {
+    result[i] *= right;
+    right *= nums[i];
+  }
+  return result;
+};
+console.log(productExceptSelf([1, 2, 3, 4]));
+
 //  9. Given two strings. Find if one string can be formed by rearranging the letters of other string.
 //  10. Write logic to get unique objects from below array ?
 //  I/P: [{name: "sai"},{name:"Nang"},{name: "sai"},{name:"Nang"},{name: "111111"}];
